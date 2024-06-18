@@ -56,5 +56,5 @@ if((result = strdup(cursor_out)) == NULL)
 
 free(intermediate);
 
-return(result);
+return result;
 }

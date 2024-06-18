@@ -7,5 +7,5 @@ char testin[] = "111887196107824805046302580707577343240113542088657215927203368
 int main()
 {
 printf("%s\n%s\n",testin,format_longnum(testin));
-return(EXIT_SUCCESS);
+return EXIT_SUCCESS;
 }

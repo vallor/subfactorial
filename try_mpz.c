@@ -31,7 +31,7 @@ for (n=0;n<51;n++)
     if(mpz_get_str(result,10,c) == NULL)
         {
         perror("mpz_get_str");
-        return(EXIT_FAILURE);
+        return EXIT_FAILURE;
         }
 //  gmp_printf("%d:%'Zd\n", n, c);
 
@@ -43,5 +43,5 @@ for (n=0;n<51;n++)
             ); */
     printf("%d:%s\n",n,format_longnum(result));
     }
-return(EXIT_SUCCESS);
+return EXIT_SUCCESS;
 }
