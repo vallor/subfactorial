@@ -2,24 +2,23 @@
 #include <string.h>
 #include <stdio.h>
 
-//#define STRLEN_MAX 4096
-
 char * format_longnum(const char in[])
 {
 char * cursor_in = in;
 char * cursor_out;
 char * result;
+char * intermediate;
 int len_in = strlen(in);
 int len_out = len_in*2; // should be enough
 
 int end_flag = 0;
-if((result = (char *) calloc(len_out,1))==NULL)
+if((intermediate = (char *) calloc(len_out,1))==NULL)
     {
-    perror("calloc");
+    perror(__FILE__ ":calloc");
     exit(EXIT_FAILURE);
     }
 
-cursor_out = &result[len_out-2];
+cursor_out = &intermediate[len_out-2];
 cursor_in = &in[len_in-1];
 
 while(cursor_in != in)
@@ -38,8 +37,7 @@ while(cursor_in != in)
 
         if(end_flag)
             {
-            *cursor_out = *cursor_in;
-            return(cursor_out);
+            break;
             }
             else
             {
@@ -49,5 +47,14 @@ while(cursor_in != in)
     }
 
 *cursor_out = *cursor_in;
-return(cursor_out);
+
+if((result = strdup(cursor_out)) == NULL)
+    {
+    perror(__FILE__ ":strdup");
+    exit(EXIT_FAILURE);
+    }
+
+free(intermediate);
+
+return(result);
 }
