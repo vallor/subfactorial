@@ -4,7 +4,7 @@
 
 char * format_longnum(const char in[])
 {
-char * cursor_in = in;
+const char * cursor_in = in;
 char * cursor_out;
 char * result;
 char * intermediate;
