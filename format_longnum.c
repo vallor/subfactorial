@@ -35,15 +35,15 @@ while(cursor_in != in)
         cursor_in--;
         }
 
-        if(end_flag)
-            {
-            break;
-            }
-            else
-            {
-            *cursor_out = ',';
-            cursor_out--;
-            }
+    if(end_flag)
+        {
+        break;
+        }
+        else
+        {
+        *cursor_out = ',';
+        cursor_out--;
+        }
     }
 
 *cursor_out = *cursor_in;
